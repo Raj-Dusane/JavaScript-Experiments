@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Experiment 1</title>
+        <link rel="stylesheet" type="text/css" href="./stylesheet.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="triangle">
+                <h2>Area of Triangle</h2>
+                <div class="input">
+                    <label for="base">Base:</label>
+                    <input type="text" name="base" id="base" placeholder="in meters" autocomplete="off"> 
+                    <label for="height">Height:</label>
+                    <input type="text" name="height" id="height" placeholder="in meters" autocomplete="off">
+                    <button onclick="calculate(1)" autofocus>Calculate</button>
+                </div>
+                <div class="output">
+                    <h3>Result:</h3>
+                    <p id="triangleResult">0</p> 
+                    <p>sq. mtr.</p>
+                </div>
+            </div>
+
+            <div class="rectangle">
+                <h2>Area of Rectangle</h2>
+                <div class="input">
+                    <label for="width">Width:</label>
+                    <input type="text" name="width" id="width" placeholder="in meters" autocomplete="off"> 
+                    <label for="length">Length:</label>
+                    <input type="text" name="height" id="length" placeholder="in meters" autocomplete="off">
+                    <button onclick="calculate(2)" autofocus>Calculate</button>
+                </div>
+                <div class="output">
+                    <h3>Result:</h3>
+                    <p id="rectangleResult">0</p> 
+                    <p>sq. mtr.</p>
+                </div>
+            </div>
+
+            <div class="circle">
+                <h2>Area of Circle</h2>
+                <div class="input">
+                    <label for="radius">Radius:</label>
+                    <input type="text" name="width" id="radius" placeholder="in meters" autocomplete="off"> 
+                    <button onclick="calculate(3)" autofocus>Calculate</button>
+                </div>
+                <div class="output">
+                    <h3>Result:</h3>
+                    <p id="circleResult">0</p> 
+                    <p>sq. mtr.</p>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="./myscript.js"></script>      
+    </body>
+</html>
