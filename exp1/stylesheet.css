@@ -1,5 +1,23 @@
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: auto 15%;
+}
+
 .output {
     display: flex;
     align-items: center;
     gap: 10px
+}
+
+.input {
+    height: 150px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.area {
+    max-width: 300px;
 }
