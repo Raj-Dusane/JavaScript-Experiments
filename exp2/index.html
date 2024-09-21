@@ -4,13 +4,19 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Multiplication Table</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="container">
-            <h1>Multiplacation Table</h1>
-            <div id="table">
+        <h2>Multiplication Table</h2>
+        <div class="form-group">
+            <label for="number">Enter a number:</label>
+            <input type="number" id="number" placeholder="Enter number">
+        </div>
+        
+        <button onclick="generateTable()">Generate Table</button>
 
-            </div>
-        </div>        
+        <div class="result" id="tableResult"></div>
+
+        <script src="script.js"></script>
     </body>
 </html>
