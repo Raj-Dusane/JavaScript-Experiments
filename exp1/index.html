@@ -1,60 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Experiment 1</title>
-        <link rel="stylesheet" type="text/css" href="./stylesheet.css">
-    </head>
-    <body>
-        <div class="container">
-            <div class="triangle area">
-                <h2>Area of Triangle</h2>
-                <div class="input">
-                    <label for="base">Base:</label>
-                    <input type="text" name="base" id="base" placeholder="in meters" autocomplete="off"> <br/>
-                    <label for="height">Height:</label>
-                    <input type="text" name="height" id="height" placeholder="in meters" autocomplete="off"> <br/>
-                    <button onclick="calculate(1)" autofocus>Calculate</button>
-                </div>
-                <div class="output">
-                    <h3>Result:</h3>
-                    <p id="triangleResult">0</p> 
-                    <p>sq. mtr.</p>
-                </div>
-            </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Area Calculator</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+</head>
+<body>
 
-            <div class="rectangle area">
-                <h2>Area of Rectangle</h2>
-                <div class="input">
-                    <label for="width">Width:</label>
-                    <input type="text" name="width" id="width" placeholder="in meters" autocomplete="off"> <br/>
-                    <label for="length">Length:</label>
-                    <input type="text" name="height" id="length" placeholder="in meters" autocomplete="off"> <br/>
-                    <button onclick="calculate(2)" autofocus>Calculate</button>
-                </div>
-                <div class="output">
-                    <h3>Result:</h3>
-                    <p id="rectangleResult">0</p> 
-                    <p>sq. mtr.</p>
-                </div>
-            </div>
+  <h2>Area Calculator</h2>
 
-            <div class="circle area">
-                <h2>Area of Circle</h2>
-                <div class="input">
-                    <label for="radius">Radius:</label>
-                    <input type="text" name="width" id="radius" placeholder="in meters" autocomplete="off"> <br/>
-                    <button onclick="calculate(3)" autofocus>Calculate</button>
-                </div>
-                <div class="output">
-                    <h3>Result:</h3>
-                    <p id="circleResult">0</p> 
-                    <p>sq. mtr.</p>
-                </div>
-            </div>
-        </div>
+  <!-- Calculator for Triangle -->
+  <div class="calculator">
+    <h3>Calculate Area of a Triangle</h3>
+    <div class="form-group">
+      <label for="sideA">Side A:</label>
+      <input type="number" id="sideA" placeholder="Enter side A">
+    </div>
+    <div class="form-group">
+      <label for="sideB">Side B:</label>
+      <input type="number" id="sideB" placeholder="Enter side B">
+    </div>
+    <div class="form-group">
+      <label for="sideC">Side C:</label>
+      <input type="number" id="sideC" placeholder="Enter side C">
+    </div>
+    <button onclick="calculateTriangle()">Calculate Triangle Area</button>
+    <div class="result" id="triangleResult"></div>
+  </div>
 
-        <script type="text/javascript" src="./myscript.js"></script>      
-    </body>
+  <!-- Calculator for Rectangle -->
+  <div class="calculator">
+    <h3>Calculate Area of a Rectangle</h3>
+    <div class="form-group">
+      <label for="length">Length:</label>
+      <input type="number" id="length" placeholder="Enter length">
+    </div>
+    <div class="form-group">
+      <label for="width">Width:</label>
+      <input type="number" id="width" placeholder="Enter width">
+    </div>
+    <button onclick="calculateRectangle()">Calculate Rectangle Area</button>
+    <div class="result" id="rectangleResult"></div>
+  </div>
+
+  <!-- Calculator for Circle -->
+  <div class="calculator">
+    <h3>Calculate Area of a Circle</h3>
+    <div class="form-group">
+      <label for="radius">Radius:</label>
+      <input type="number" id="radius" placeholder="Enter radius">
+    </div>
+    <button onclick="calculateCircle()">Calculate Circle Area</button>
+    <div class="result" id="circleResult"></div>
+  </div>
+
+  <script src="script.js"></script> <!-- Link to external JavaScript file -->
+</body>
 </html>

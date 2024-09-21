@@ -1,58 +1,43 @@
-function calculate(id) {
-    
-    function checkInput(inputValue) {
-        return inputValue.toLowerCase().indexOf('o') !== -1;
+// Function to calculate the area of a triangle using semiperimeter formula
+function calculateTriangle() {
+    const a = parseFloat(document.getElementById('sideA').value);
+    const b = parseFloat(document.getElementById('sideB').value);
+    const c = parseFloat(document.getElementById('sideC').value);
+
+    if (isNaN(a) || isNaN(b) || isNaN(c) || a <= 0 || b <= 0 || c <= 0) {
+        document.getElementById('triangleResult').innerText = "Please enter valid side lengths.";
+        return;
     }
 
-    if (id===1) {
-        let base = document.getElementById("base");
-        let height = document.getElementById("height");
-
-        if (base.value==="") { alert("Enter Base"); return; }
-        if (height.value==="") { alert("Enter Height"); return; } 
-        if (checkInput(base.value)) {
-            alert("Entered 'o' in base");
-            return;
-        }
-        if (checkInput(height.value)) {
-            alert("Entered 'o' in height");
-            return;
-        }
-
-        let result = 0.5 * parseFloat(base.value) * parseFloat(height.value);
-        document.getElementById("triangleResult").innerHTML = result.toFixed(4);
-    }
-
-    if (id===2) {   
-        let width = document.getElementById("width");
-        let length = document.getElementById("length");
-
-        if (width.value==="") { alert("Enter Width"); return; }
-        if (length.value==="") { alert("Enter Length"); return; }
-        if (checkInput(width.value)) {
-            alert("Entered 'o' in width");
-            return;
-        }
-        if (checkInput(length.value)) {
-            alert("Entered 'o' in length");
-            return;
-        }
-
-        let result = parseFloat(width.value) * parseFloat(length.value);
-        document.getElementById("rectangleResult").innerHTML = result.toFixed(4);
-    }
-
-    if (id===3) {   
-        let radius = document.getElementById("radius");
-
-        if (radius.value==="") { alert("Enter radius"); return; }
-        if (checkInput(radius.value)) {
-            alert("Entered 'o' in radius");
-            return;
-        }
-
-        let result = Math.PI * Math.pow(parseFloat(radius.value), 2);
-        document.getElementById("circleResult").innerHTML = result.toFixed(4);
-    }
-
+    const s = (a + b + c) / 2; // Semiperimeter
+    const area = Math.sqrt(s * (s - a) * (s - b) * (s - c)); // Area calculation
+    document.getElementById('triangleResult').innerText = `Area of Triangle: ${area.toFixed(2)}`;
 }
+
+// Function to calculate the area of a rectangle
+function calculateRectangle() {
+    const length = parseFloat(document.getElementById('length').value);
+    const width = parseFloat(document.getElementById('width').value);
+
+    if (isNaN(length) || isNaN(width) || length <= 0 || width <= 0) {
+        document.getElementById('rectangleResult').innerText = "Please enter valid dimensions.";
+        return;
+    }
+
+    const area = length * width;
+    document.getElementById('rectangleResult').innerText = `Area of Rectangle: ${area}`;
+}
+
+// Function to calculate the area of a circle
+function calculateCircle() {
+    const radius = parseFloat(document.getElementById('radius').value);
+
+    if (isNaN(radius) || radius <= 0) {
+        document.getElementById('circleResult').innerText = "Please enter a valid radius.";
+        return;
+    }
+
+    const area = Math.PI * Math.pow(radius, 2);
+    document.getElementById('circleResult').innerText = `Area of Circle: ${area.toFixed(2)}`;
+}
+  
