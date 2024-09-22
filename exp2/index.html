@@ -7,15 +7,23 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h2>Multiplication Table</h2>
+        <h2>Multiplication Table Generator</h2>
         <div class="form-group">
-            <label for="number">Enter a number:</label>
-            <input type="number" id="number" placeholder="Enter number">
+            <label style="margin-top: 5%;" for="number">Enter a number:</label>
+            <input type="number" id="number" placeholder="Enter number" autocomplete="off">
+            <label style="margin-top: 15px;" for="multiplier">Upto Multiplier:</label>
+            <input type="number" id="multiplier" placeholder="Enter number" autocomplete="off">
         </div>
         
         <button onclick="generateTable()">Generate Table</button>
 
-        <div class="result" id="tableResult"></div>
+        <h3 id="heading" style="margin-top: 40px;"></h3>
+        <div class="container">
+            <div class="result" id="forLoop"></div>
+            <div class="result" id="doWhileLoop"></div>
+            <div class="result" id="whileLoop"></div>
+        </div>
+
 
         <script src="script.js"></script>
     </body>
