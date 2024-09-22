@@ -20,6 +20,12 @@ function verifyOption() {
     errMsg.innerHTML = "";
     nullDisplay.innerHTML = "";
     result.innerHTML = "";
+    strReverse();
+  }
+  else if (index==2){
+    errMsg.innerHTML = "";
+    nullDisplay.innerHTML = "";
+    result.innerHTML = "";
     strReplacement();
   }
   else {
@@ -31,44 +37,10 @@ function verifyOption() {
   return;
 }
 
-function strReplacement() {
-  const element = `
-  <fildset class="optionBox"></fildset>
-  <legend style="margin-bottom: 15px; font-weight: bold;">Select Method:</legend>
-  <div>
-  <label style="font-weight: normal;" for="standard">
-  <input type="radio" id="standard" name="standard" value="standard" selected> Standard Method
-  </label>
-  </div>
-  <div>
-  <label style="font-weight: normal;" for="nonStandard">
-  <input type="radio" id="nonStandard" name="standard" value="nonStandard"> Non Standard Method
-  </label>
-  </div>
-  <div id="unselectMethod"></div>
-  </fieldset>
-  
-  <div class="form-group">
-  <label for="charToReplace">Character to be replaced:</label>
-  <input type="text" id="charToReplace" placeholder="Enter character" autocomplete="off">
-  </div>
-  <div class="form-group">
-  <label for="replaceWith">Character to be replaced with:</label>
-  <input type="text" id="replaceWith" placeholder="Enter character" autocomplete="off">
-  </div>
-  
-  <div class="button">
-  <button onclick="replaceCharacters()">Replace</button>
-  </div>
-  `;
-  document.getElementById('display').innerHTML = element;  
-  return;
-}
-
 function validateInput() {
-  const inputStr = document.getElementById('inputString').value;
-  const errMsgElement = document.getElementById('errMsg');
   const inputField = document.getElementById('inputString');
+  const inputStr = inputField.value;
+  const errMsgElement = document.getElementById('errMsg');
   
   if (!inputStr) {
     inputField.style.borderColor = 'red';
@@ -82,8 +54,7 @@ function validateInput() {
 }
 
 function validateOptions() {
-  const selected = document.querySelector('input[name="standard"]:checked');
-  console.log(selected);
+  const selected = document.querySelector('input[name="buildInM"]:checked');
   let errMsg = document.getElementById('unselectMethod');
   if (!selected) {
     errMsg.innerHTML=`<p style="color: red; font-weight: bold; margin: 15px 0 0 6px"> Please select an option </p>`;
@@ -95,6 +66,87 @@ function validateOptions() {
   }
 }
 
+function makeReverse() {
+  const method = validateOptions();
+  if (validateInput() && method.execute){
+    let inputStr = document.getElementById('inputString').value;
+    let result = document.getElementById('result');
+    result.innerHTML = ""; 
+    if (method.methodType == "buildInM") {
+      result.innerHTML = ` <p> <span style="font-weight: bold;"> Builtin method: </span> <br> ${inputStr.split("").reverse().join("")} </p>`;
+    }
+    else {
+      let str='', i=inputStr.length-1;
+      while (i>=0){
+        str += inputStr[i];
+        i--;
+      }
+      result.innerHTML = ` <p> <span style="font-weight: bold;"> Cutom method: </span> <br> ${str} </p>`;
+    }
+  }
+  return;
+}
+
+function strReverse() {
+  const element = `
+    <fildset class="optionBox"></fildset>
+      <legend style="margin-bottom: 15px; font-weight: bold;">Select Method:</legend>
+      <div>
+        <label style="font-weight: normal;" for="buildInM">
+          <input type="radio" id="buildInM" name="buildInM" value="buildInM" selected> Build in Method
+        </label>
+      </div>
+      <div>
+        <label style="font-weight: normal;" for="customMethod">
+          <input type="radio" id="customMethod" name="buildInM" value="customMethod"> Custom Method
+        </label>
+      </div>
+      <div id="unselectMethod"></div>
+    </fieldset>
+
+    <div class="button">
+      <button onclick="makeReverse()">Replace</button>
+    </div>
+  `;
+  document.getElementById('display').innerHTML = element;
+      
+  return;
+}
+
+function strReplacement() {
+  const element = `
+  <fildset class="optionBox"></fildset>
+    <legend style="margin-bottom: 15px; font-weight: bold;">Select Method:</legend>
+    <div>
+      <label style="font-weight: normal;" for="buildInM">
+        <input type="radio" id="buildInM" name="buildInM" value="buildInM" selected> Build in Method
+      </label>
+    </div>
+    <div>
+      <label style="font-weight: normal;" for="customMethod">
+        <input type="radio" id="customMethod" name="buildInM" value="customMethod"> Custom Method
+      </label>
+    </div>
+    <div id="unselectMethod"></div>
+  </fieldset>
+  
+  <div class="form-group">
+    <label for="charToReplace">Character to be replaced:</label>
+    <input type="text" id="charToReplace" placeholder="Enter character" autocomplete="off">
+  </div>
+  <div class="form-group">
+    <label for="replaceWith">Character to be replaced with:</label>
+    <input type="text" id="replaceWith" placeholder="Enter character" autocomplete="off">
+  </div>
+  
+  <div class="button">
+    <button onclick="replaceCharacters()">Replace</button>
+  </div>
+  `;
+  document.getElementById('display').innerHTML = element;  
+  return;
+}
+
 function replaceCharacters() {
   const selectedMethod = validateOptions();
   
@@ -104,8 +156,8 @@ function replaceCharacters() {
     const symbol = document.getElementById('replaceWith').value;
     let result = document.getElementById('result');
 
-    // Non-standard string methods
-    if (selectedMethod.methodType=="nonStandard") {
+    // Custom string methods
+    if (selectedMethod.methodType=="customMethod") {
       let replacedString = '';
       for (let i = 0; i < inputStr.length; i++) {
         if (inputStr[i] === charToReplace) {
@@ -115,13 +167,13 @@ function replaceCharacters() {
         }
         console.log(replacedString);
       }
-      result.innerHTML = `<p> <span style="font-weight: bold;"> Output using non standard method: </span> <br> <br> ${replacedString} </p>`;
+      result.innerHTML = `<p> <span style="font-weight: bold;"> Output using non buildInM method: </span> <br> <br> ${replacedString} </p>`;
     }
 
-    // standard string method
+    // Built In method
     else {      
       let replacedString = inputStr.replace(new RegExp(charToReplace, 'g'), symbol);
-      result.innerHTML = `<p> <span style="font-weight: bold"> Output using standard method: </span> <br> <br> ${replacedString} </p>`;
+      result.innerHTML = `<p> <span style="font-weight: bold"> Output using buildInM method: </span> <br> <br> ${replacedString} </p>`;
     }
   } 
 }
