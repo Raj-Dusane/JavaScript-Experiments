@@ -81,7 +81,7 @@ function makeReverse() {
         str += inputStr[i];
         i--;
       }
-      result.innerHTML = ` <p> <span style="font-weight: bold;"> Cutom method: </span> <br> ${str} </p>`;
+      result.innerHTML = ` <p> <span style="font-weight: bold;"> Custom method: </span> <br> ${str} </p>`;
     }
   }
   return;
@@ -167,13 +167,13 @@ function replaceCharacters() {
         }
         console.log(replacedString);
       }
-      result.innerHTML = `<p> <span style="font-weight: bold;"> Output using non buildInM method: </span> <br> <br> ${replacedString} </p>`;
+      result.innerHTML = `<p> <span style="font-weight: bold;"> Custom method: </span> <br> <br> ${replacedString} </p>`;
     }
 
     // Built In method
     else {      
       let replacedString = inputStr.replace(new RegExp(charToReplace, 'g'), symbol);
-      result.innerHTML = `<p> <span style="font-weight: bold"> Output using buildInM method: </span> <br> <br> ${replacedString} </p>`;
+      result.innerHTML = `<p> <span style="font-weight: bold"> Buildin method: </span> <br> <br> ${replacedString} </p>`;
     }
   } 
 }
