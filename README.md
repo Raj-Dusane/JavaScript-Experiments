@@ -2,7 +2,7 @@
 
 ## List Of Experiments
 
-    1) Calculate area of triangle, area of rectangle and area of circle using JavaScript.
+    1) Calculate area of triangle using semiperimeter, rectangle and circle using JavaScript.
     
     2) Generate the multiplication table of a given number using JavaScript.
     
