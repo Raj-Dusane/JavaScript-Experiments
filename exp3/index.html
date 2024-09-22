@@ -1,42 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>String Operations</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Operations</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
 
-  <h2>String Operations</h2>
+    <h2>String Operations</h2>
 
-  <!-- Replace Characters -->
-  <div class="form-group">
-    <label for="inputString">Enter the string:</label>
-    <input type="text" id="inputString" placeholder="Enter string">
-  </div>
+    <div class="form-group">
+      <label for="inputString">Enter the string:</label>
+      <input type="text" id="inputString" placeholder="Enter string">
+      <div id="errMsg"></div>
+    </div>
 
-  <div class="form-group">
-    <label for="replaceChar">Enter character to be replaced:</label>
-    <input type="text" id="replaceChar" placeholder="Enter character">
-  </div>
+    <div class="selecBox">
+      <label style="margin: 0;" for="stringOperation">Select Operation: </label>
+      <select onchange="verifyOption()" name="operations" id="stringOperation">
+        <option value="selectOption" selected>Select option</option>
+        <option value="strReplacement">String Replacement</option>
+        <option value="PalinCheck">Palindrome Check</option>
+      </select>
+    </div>
+    <div id="invalidOption"></div>
 
-  <button onclick="replaceCharacters()">Replace Characters (With Standard Methods)</button>
-  <button onclick="replaceCharactersWithout()">Replace Characters (Without Standard Methods)</button>
+    <div id="display"></div>
 
-  <!-- Palindrome Check -->
-  <div class="form-group">
-    <label for="palindromeString">Enter a string to check Palindrome:</label>
-    <input type="text" id="palindromeString" placeholder="Enter string">
-  </div>
 
-  <button onclick="checkPalindrome()">Check Palindrome</button>
+    <!-- Results -->
+    <div class="result" id="result"></div>
 
-  <!-- Results -->
-  <div class="result" id="result"></div>
-
-  <!-- Link to external JavaScript file -->
-  <script src="script.js"></script>
-
-</body>
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+  </body>
 </html>

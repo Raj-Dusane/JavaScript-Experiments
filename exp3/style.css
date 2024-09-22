@@ -4,30 +4,59 @@ body {
   padding: 20px;
   max-width: 600px;
   margin: 0 auto;
+  font-size: 14px;
 }
 
-  h2 {
+h2 {
   text-align: center;
 }
 
 .form-group {
-  margin: 20px 0 0 15px;
+  margin: 20px 0 20px 0;
 }
 
-  label {
+.selecBox {
+  display: flex;
+  text-align: center;
+  margin: 40px 0 20px 0;
+  gap: 5px;
+}
+
+.optionBox {
+  display: flex;
+  flex-direction: column;
+  column-gap: 20px;
+}
+
+.button{
+  display: flex;
+}
+
+label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-  input[type="text"] {
+input[type="text"] {
   width: calc(100% - 20px);
   padding: 8px;
   border-radius: 4px;
   border: 1px solid #ddd;
 }
 
-  button {
+input[type="radio" i] {
+  background-color: initial;
+  cursor: default;
+  appearance: auto;
+  box-sizing: border-box;
+  margin: 3px 3px 0px 2px;
+  padding: initial;
+  border: initial;
+}
+
+
+button {
   padding: 10px 15px;
   background-color: #007bff;
   color: #fff;
@@ -43,6 +72,9 @@ button:hover {
 }
 
 .result {
-    margin-top: 20px;
-    font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  font-size: 1.2em;
+  align-items: center;
 }  
