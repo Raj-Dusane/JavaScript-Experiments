@@ -14,16 +14,10 @@
             <label style="margin-top: 15px;" for="multiplier">Upto Multiplier:</label>
             <input type="number" id="multiplier" placeholder="Enter number" autocomplete="off">
         </div>
-        
-        <button onclick="generateTable()">Generate Table</button>
 
-        <h3 id="heading" style="margin-top: 40px;"></h3>
-        <div class="container">
-            <div class="result" id="forLoop"></div>
-            <div class="result" id="doWhileLoop"></div>
-            <div class="result" id="whileLoop"></div>
-        </div>
-
+        <button onclick="redirectTo('for')">Generate For Loop Table</button>
+        <button onclick="redirectTo('while')">Generate While Loop Table</button>
+        <button onclick="redirectTo('doWhile')">Generate Do While Loop Table</button>
 
         <script src="script.js"></script>
     </body>
