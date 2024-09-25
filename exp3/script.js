@@ -173,9 +173,9 @@ function replaceCharacters() {
     // Built In method
     else {      
       let replacedString = inputStr.replace(new RegExp(charToReplace, 'g'), symbol);
-      result.innerHTML = `<p> <span style="font-weight: bold"> Buildin method: </span> <br> <br> ${replacedString} </p>`;
+      result.innerHTML = `<p> <span style="font-weight: bold"> Built In method: </span> <br> <br> ${replacedString} </p>`;
     }
-  } 
+  }
 }
 
 // Palindrome Check
