@@ -1,28 +1,65 @@
-// Set the end date for the countdown (YYYY-MM-DD HH:MM:SS)
-let endDate = new Date('2024-10-01T00:00:00').getTime();
+let interval; 
 
-// Update the countdown every 1 second
-let timer = setInterval(function() {
-  // Get the current date and time
-  let now = new Date().getTime();
+function setTime(){
+  const givenTime = document.getElementById('timeInput').value;
+  let containerDisplay = document.getElementById('timer-container');
 
-  // Find the time difference between now and the end date
-  let timeRemaining = endDate - now;
-
-  // Calculate the days, hours, minutes, and seconds remaining
-  let days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-  let hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-  // Display the result
-  document.getElementById("timer").innerHTML = 
-    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-  // Check if the countdown is over and display "expired"
-  if (timeRemaining < 0) {
-    clearInterval(timer);
-    document.getElementById("timer").innerHTML = "";
-    document.getElementById("expired").innerHTML = "<p>Expired</p>";
+  if (!givenTime) {
+    alert("Please select a valid future date and time.");
+    return;
   }
-}, 1000);
+  
+  const futureDate = new Date(givenTime);
+  let currDate = new Date();
+  const differenceInMs = futureDate - currDate;
+
+  if (differenceInMs < 0) {
+    clearInterval(interval);
+    containerDisplay.innerHTML = `
+      <div class="expired">
+        <h3 style="color: red;">Expired</h3>
+      </div>
+    `;
+    return;
+  }
+
+  updateDisplay(differenceInMs, containerDisplay);
+  clearInterval(interval);
+
+  interval = setInterval(() => {
+    currDate = new Date();
+    const differenceInMs = futureDate - currDate;
+
+    if (differenceInMs < 0) {
+      clearInterval(interval);
+      containerDisplay.innerHTML = `
+        <div class="expired">
+          <h3 style="color: red;">Expired</h3>
+        </div>
+      `;
+      return;
+    }
+
+    updateDisplay(differenceInMs, containerDisplay);
+  }, 1000); 
+
+  function updateDisplay(differenceInMs, containerDisplay) {
+    const days = Math.floor(differenceInMs / 1000 / 60 / 60 / 24);
+    const hours = Math.floor((differenceInMs / 1000 / 60 / 60) % 24);
+    const minutes = Math.floor((differenceInMs / 1000 / 60) % 60);
+    const seconds = Math.floor((differenceInMs / 1000) % 60);
+  
+    containerDisplay.innerHTML = `
+      <p class="timerTitle">Remaining Time</p>
+      <div class="display">
+        <div id="days"><span style="font-size: 38px;">${days}</span> Days</div>
+        <div id="hours"><span style="font-size: 38px;">${hours}</span> Hours</div>
+        <div id="minutes"><span style="font-size: 38px;">${minutes}</span> Minutes</div>
+        <div id="seconds"><span style="font-size: 38px;">${seconds}</span> Seconds</div>
+      </div>
+    `;
+    return;
+  }
+
+  return;
+}
