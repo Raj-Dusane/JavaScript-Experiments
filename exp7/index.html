@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Object Manipulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Array Object Manipulation</h1>
+
+    <!-- Step 1: Input to accept array size -->
+    <label for="arraySize">Enter Array Size:</label>
+    <input type="number" id="arraySize" placeholder="Enter size">
+    <button onclick="initializeArray()">Initialize Array</button>
+
+    <br><br>
+
+    <!-- Input to add elements to the array -->
+    <label for="elementInput">Enter an object/array as a JSON string:</label>
+    <input type="text" id="elementInput" placeholder='{"name": "John", "age": 30} or [1, 2, 3]'>
+    <button onclick="appendObject()">Append Element</button>
+    
+    <br><br>
+
+    <!-- Buttons for other Array Methods -->
+    <button onclick="popElement()">Pop Element</button>
+    <button onclick="shiftElement()">Shift Element</button>
+    <button onclick="unshiftElement()">Unshift Element</button>
+
+    <br><br>
+
+    <!-- Output display -->
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
