@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2 id="welcomeMessage"></h2>
+        <p style="text-align: center;">Thank you for submitting your information!</p>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        document.getElementById('welcomeMessage').innerText = `Congratulations! Welcome, ${name}!`;
+    </script>
+</body>
+</html>f
