@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Operations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>JavaScript Array Operations</h1>
+
+    <div class="form-group">
+        <label for="arrayLength">Enter Array Length:</label>
+        <input type="number" id="arrayLength" min="1" onchange="createArrayInputs()">
+    </div>
+
+    <div id="arrayInputs" class="form-group"></div>
+
+    <div class="form-group">
+        <label for="deleteElement">Enter Elements to Delete (comma-separated):</label>
+        <input type="text" id="deleteElement">
+    </div>
+
+    <div class="form-group">
+        <label for="checkElement">Enter Element to Check:</label>
+        <input type="text" id="checkElement">
+    </div>
+
+    <div class="button">
+        <button onclick="performOperations()">Perform Operations</button>
+        <button onclick="emptyArray()">Empty Array</button>
+    </div>
+
+    <div class="result1">
+        <p id="originalArray"></p>
+        <p id="modifiedArray"></p>
+        <p id="checkResult"></p>
+        <p id="arrayStatus"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
