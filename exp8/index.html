@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page - Background Color Change</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Expertiment No: 8</h2>
+
+    <div id="hoverBox" onmouseover="changeBgOnHover()" onmouseout="resetBg()">
+        Hover over this box
+    </div>
+
+    <br><br>
+
+    <label for="focusInput">Click the input box to change background color:</label>
+    <input type="text" id="focusInput" onfocus="changeBgOnFocus()" onblur="resetBgOnBlur()" placeholder="Focus here">
+
+    <script src="script.js"></script>
+</body>
+</html>
