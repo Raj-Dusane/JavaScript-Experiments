@@ -8,10 +8,6 @@ body {
     text-align: center;
 }
 
-h1 {
-    color: #007bff;
-}
-
 input[type="text"], input[type="number"] {
     padding: 10px;
     margin: 10px;
