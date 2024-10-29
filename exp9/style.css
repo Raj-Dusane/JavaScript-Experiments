@@ -26,13 +26,12 @@ label {
     margin-bottom: 5px;
 }
 
-/* Ensure the input fits well inside the container */
 input[type="text"], select {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box; /* This ensures padding and border are included in width */
+    box-sizing: border-box;
 }
 
 button {
@@ -48,7 +47,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #007bff;
 }
 
 .error {
