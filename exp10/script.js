@@ -41,7 +41,7 @@ function generateMultiplicationTable(loopType, number, multiplier) {
     }
 }
 
-const args = process.argv.slice(3);
+const args = process.argv.slice(2);
 const loopType = args[0];
 const number = parseInt(args[1]);
 const multiplier = parseInt(args[2]);
